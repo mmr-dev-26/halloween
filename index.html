@@ -782,13 +782,9 @@ function sfx(n){if(!AU.ctx||!AU.on)return;var now=AU.ctx.currentTime,gap={hit:.0
     case'ultD':tone(40,3.5,'sawtooth',.3,30);tone(60,3.5,'square',.08,45);[0,.8,1.6,2.4].forEach(function(d){tone(220,1.4,'sine',.12,null,d);tone(233,1.4,'sine',.08,null,d)});noise(3.2,.2,400,'lowpass',2000);break;
   }
 }
-/* trilha: drone grave + arpejo menor que acelera com os turnos */
+/* trilha: arpejo menor + batida de coração, acelera com os turnos */
 var SCALE=[0,3,7,10,12,15,7,3];
-function musicStart(){if(!AU.ctx||AU.musT)return;var c=AU.ctx;
-  var o1=c.createOscillator(),o2=c.createOscillator(),lp=c.createBiquadFilter(),dg=c.createGain(),lfo=c.createOscillator(),lg=c.createGain();
-  o1.type='sawtooth';o2.type='sawtooth';o1.frequency.value=55;o2.frequency.value=55.4;lp.type='lowpass';lp.frequency.value=260;dg.gain.value=.35;
-  lfo.frequency.value=.07;lg.gain.value=120;lfo.connect(lg);lg.connect(lp.frequency);o1.connect(lp);o2.connect(lp);lp.connect(dg);dg.connect(AU.mus);
-  o1.start();o2.start();lfo.start();AU.drone=[o1,o2,lfo];AU.next=c.currentTime+.1;AU.step=0;
+function musicStart(){if(!AU.ctx||AU.musT)return;var c=AU.ctx;AU.next=c.currentTime+.1;AU.step=0;
   AU.musT=setInterval(function(){if(!AU.ctx)return;var bpm=78+AU.turn*6,beat=60/bpm/2;
     while(AU.next<AU.ctx.currentTime+.3){var s=AU.step%16,root=[45,45,41,43][Math.floor(AU.step/16)%4];
       var f=440*Math.pow(2,(root+12+SCALE[s%8]-69)/12),d=AU.next-AU.ctx.currentTime;
