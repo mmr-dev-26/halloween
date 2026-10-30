@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Festa de Halloween · Sáb 31/10 a partir das 18h30 · Moradas Club Canoas, Quiosque 3B · Fantasia obrigatória">
+<meta property="og:title" content="Festa de Halloween · Quiosque 3B">
+<meta property="og:description" content="Sáb 31/10 a partir das 18h30 · Fantasia obrigatória">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Halloween no Quiosque 3B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: convite em coluna única, como um ingresso de show — capa, programa, local/rota, regras */
+:root{
+  --bg:#0e0b10; --surface:#18131b; --line:#2e2433; --fg:#efe7e2; --muted:#a8999f;
+  --pumpkin:#ff7a1a; --blood:#e2336b; --onaccent:#140c06;
+  --f-display:"Pirata One","UnifrakturCook",Georgia,serif;
+  --f-body:"Karla",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#f3ece4; --surface:#fffaf4; --line:#ddcfc2; --fg:#1d1418; --muted:#6d5d60;
+  --pumpkin:#c8530a; --blood:#b81f52; --onaccent:#fff8f0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f3ece4; --surface:#fffaf4; --line:#ddcfc2; --fg:#1d1418; --muted:#6d5d60;
+  --pumpkin:#c8530a; --blood:#b81f52; --onaccent:#fff8f0; color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;padding-block:20px 56px;display:flex;flex-direction:column;gap:40px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.toggle{font:600 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--fg);
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.toggle:hover,.toggle:focus-visible{border-color:var(--pumpkin);outline:none}
+
+.hero{position:relative;display:flex;flex-direction:column;gap:14px}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(64px,19vw,124px);line-height:.86;margin:0;
+  letter-spacing:.01em;text-wrap:balance}
+.hero h1 span{color:var(--pumpkin);display:block}
+.hero .sub{font-size:18px;max-width:34ch;margin:0;color:var(--fg)}
+.hero .sub b{color:var(--blood);font-weight:700}
+.moon{position:absolute;right:-6px;top:-4px;width:clamp(84px,24vw,130px);aspect-ratio:1;max-width:100%;pointer-events:none}
+
+.ticket{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.ticket div{padding:14px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.ticket div+div{border-left:1px dashed var(--line)}
+.ticket small{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ticket strong{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.05}
+.ticket em{font-style:normal;font-size:13px;color:var(--muted)}
+.countdown{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:-26px}
+.countdown b{color:var(--pumpkin);font-weight:600}
+
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-family:var(--f-display);font-weight:400;font-size:40px;line-height:1;margin:0;text-wrap:balance}
+h2::after{content:"";display:block;width:48px;height:3px;background:var(--blood);margin-top:10px}
+p{margin:0;max-width:62ch}
+
+.alert{border:2px solid var(--blood);padding:16px 18px;border-radius:4px;display:flex;gap:14px;align-items:flex-start}
+.alert svg{flex:0 0 34px}
+.alert strong{display:block;font-size:18px}
+.alert p{color:var(--muted)}
+
+.setlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.setlist li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);align-items:start}
+.setlist li:last-child{border-bottom:1px solid var(--line)}
+.setlist .ic{width:36px;height:36px;color:var(--pumpkin)}
+.setlist b{display:block;font-size:17px}
+.setlist span{color:var(--muted);font-size:15px}
+
+.addr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.addr .place{font-family:var(--f-display);font-size:30px;line-height:1}
+.addr .kiosk{display:inline-block;font:600 13px var(--f-mono);letter-spacing:.1em;background:var(--pumpkin);color:var(--onaccent);
+  padding:3px 9px;border-radius:2px;width:fit-content}
+.addr .street{user-select:all;color:var(--fg)}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border-radius:4px;
+  font:700 15px var(--f-body);text-decoration:none;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--fg)}
+.btn.primary{background:var(--pumpkin);border-color:var(--pumpkin);color:var(--onaccent)}
+.btn.dark{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.btn:hover,.btn:focus-visible{outline:2px solid var(--blood);outline-offset:2px}
+.btn svg{width:18px;height:18px}
+
+.mapcard{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
+.mapcard svg{display:block;width:100%;height:auto}
+.mapcap{font:12px var(--f-mono);color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+
+.route{display:flex;flex-direction:column;gap:10px}
+.route label{font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.route input{width:100%;min-height:48px;padding:0 14px;border-radius:4px;border:1px solid var(--line);background:var(--surface);
+  color:var(--fg);font:16px var(--f-body)}
+.route input:focus{outline:2px solid var(--pumpkin);outline-offset:1px}
+.modes{display:flex;gap:6px;flex-wrap:wrap}
+.modes input{position:absolute;opacity:0;width:1px;height:1px}
+.modes label{font:500 14px var(--f-body);letter-spacing:0;text-transform:none;color:var(--fg);border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;cursor:pointer}
+.modes input:checked+label{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.modes input:focus-visible+label{outline:2px solid var(--pumpkin)}
+.hint{font-size:13px;color:var(--muted)}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rules div{border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.rules b{font-size:16px}
+.rules span{color:var(--muted);font-size:14px}
+@media (max-width:460px){.rules{grid-template-columns:1fr}.ticket strong{font-size:22px}}
+footer{font-family:var(--f-display);font-size:26px;text-align:center;color:var(--muted)}
+footer span{color:var(--pumpkin)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);
+  font:600 14px var(--f-body);padding:10px 16px;border-radius:4px;transition:opacity .2s}
+@media (prefers-reduced-motion:no-preference){.moon{animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(6px) rotate(-3deg)}}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <span class="tag">Convite · 31.10</span>
+    <button class="toggle" id="themeToggle" type="button" aria-label="Alternar tema">☀ Claro</button>
+  </div>
+
+  <header class="hero">
+    <svg class="moon" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="44" fill="var(--pumpkin)"/>
+      <path d="M38 50 l10 -9 l10 9z M62 50 l10 -9 l10 9z" fill="var(--bg)"/>
+      <path d="M36 72 q24 20 48 0 l-6 2 l-4 -6 l-5 7 l-5 -7 l-5 7 l-5 -7 l-5 7 l-4 -6z" fill="var(--bg)"/>
+      <path d="M58 16 q2 -10 10 -12" stroke="var(--fg)" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <h1>Festa de<span>Halloween</span></h1>
+    <p class="sub">Doces, karaokê, jogos e muito emo no repeat. <b>Fantasia obrigatória.</b></p>
+  </header>
+
+  <div class="ticket" role="list">
+    <div role="listitem"><small>Quando</small><strong>Sáb 31/10</strong><em>amanhã</em></div>
+    <div role="listitem"><small>A partir</small><strong>18h30</strong><em>chegue quando quiser</em></div>
+    <div role="listitem"><small>Onde</small><strong>Quiosque 3B</strong><em>Moradas Club</em></div>
+  </div>
+  <p class="countdown" id="countdown" aria-live="polite">Começa em <b>—</b></p>
+
+  <div class="alert" role="note">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c-9 0-15 7-15 16v18l5-4 5 4 5-4 5 4 5-4 5 4V19c0-9-6-16-15-16z" fill="none" stroke="var(--blood)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="14" cy="18" r="3" fill="var(--blood)"/><circle cx="26" cy="18" r="3" fill="var(--blood)"/></svg>
+    <div><strong>A festa é à fantasia</strong><p>Sem fantasia, sem doce. Vale tudo: clássico de terror, personagem, banda emo de 2006, o que a criatividade mandar.</p></div>
+  </div>
+
+  <section aria-labelledby="h-prog">
+    <h2 id="h-prog">O que vai rolar</h2>
+    <ul class="setlist">
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><rect x="13" y="4" width="10" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M8 17a10 10 0 0020 0M18 27v5M12 32h12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <div><b>Karaokê</b><span>Prepare aquele refrão que você gritava no quarto.</span></div></li>
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><path d="M13 27V8l17-4v19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="9" cy="27" r="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="23" r="4" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <div><b>Música, principalmente emo</b><span>Franja de lado é opcional, mas incentivada.</span></div></li>
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><rect x="4" y="9" width="15" height="21" rx="2" transform="rotate(-10 11 19)" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="16" y="6" width="15" height="21" rx="2" transform="rotate(8 23 16)" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <div><b>Jogos de mesa e de carta</b><span>Pra quem prefere perder amizades sentado.</span></div></li>
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><path d="M8 14h20l-2 16H10z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 14c0-4 3-7 6-7s6 3 6 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <div><b>Doces, salgados e refri</b><span>Por conta da casa.</span></div></li>
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><path d="M12 4h12l-1 8 4 20H9l4-20z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M11 20h14" stroke="currentColor" stroke-width="2.4"/></svg>
+        <div><b>Bebida alcoólica: traga a sua</b><span>Cada um leva o que vai beber.</span></div></li>
+      <li><svg class="ic" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 8q14 10 28 0M8 10v6M14 13v8M22 13v8M28 10v6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="14" cy="24" r="2" fill="currentColor"/><circle cx="22" cy="24" r="2" fill="currentColor"/></svg>
+        <div><b>Decoração temática</b><span>Teias, abóboras e clima de filme B.</span></div></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-local">
+    <h2 id="h-local">Como chegar</h2>
+    <div class="addr">
+      <span class="place">Moradas Club Canoas</span>
+      <span class="kiosk">QUIOSQUE 3B</span>
+      <span class="street" id="street">R. Profa. Silvia Síeben Meotti, 84 – São José, Canoas – RS, 92420-236</span>
+      <div class="btnrow">
+        <button class="btn" type="button" id="copyAddr">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 13V4a1 1 0 011-1h9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Copiar endereço</button>
+        <a class="btn" id="openMap" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.5 6-10a6 6 0 00-12 0c0 4.5 6 10 6 10z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="8" r="2.2" fill="currentColor"/></svg>Ver no mapa</a>
+      </div>
+    </div>
+
+    <div class="mapcard">
+      <svg viewBox="0 0 600 260" role="img" aria-label="Ilustração do trajeto até o Quiosque 3B">
+        <rect width="600" height="260" fill="var(--surface)"/>
+        <g stroke="var(--line)" stroke-width="1">
+          <path d="M0 40H600M0 100H600M0 160H600M0 220H600M80 0V260M200 0V260M320 0V260M440 0V260M560 0V260"/>
+        </g>
+        <path d="M-10 200 C120 190 160 120 260 130 S420 70 470 92" fill="none" stroke="var(--muted)" stroke-width="14" stroke-linecap="round" opacity=".25"/>
+        <path d="M40 210 C140 196 170 128 262 132 S410 80 466 96" fill="none" stroke="var(--pumpkin)" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <circle cx="40" cy="210" r="9" fill="var(--bg)" stroke="var(--fg)" stroke-width="3"/>
+        <text x="58" y="236" fill="var(--muted)" font-family="IBM Plex Mono,monospace" font-size="14">você</text>
+        <rect x="430" y="40" width="130" height="110" rx="6" fill="none" stroke="var(--fg)" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="442" y="62" fill="var(--muted)" font-family="IBM Plex Mono,monospace" font-size="12">MORADAS CLUB</text>
+        <circle cx="490" cy="104" r="20" fill="var(--pumpkin)"/>
+        <path d="M482 100 l4 -4 l4 4z M492 100 l4 -4 l4 4z M480 110 q10 8 20 0" fill="var(--bg)" stroke="var(--bg)" stroke-width="1.5"/>
+        <text x="468" y="142" fill="var(--fg)" font-family="Pirata One,Georgia,serif" font-size="20">Quiosque 3B</text>
+      </svg>
+      <div class="mapcap">Dentro do condomínio, siga até a área dos quiosques e procure o 3B.</div>
+    </div>
+
+    <form class="route" id="routeForm" novalidate>
+      <label for="origin">Saindo de onde?</label>
+      <input id="origin" name="origin" type="text" autocomplete="street-address" placeholder="Seu endereço ou bairro (vazio = localização atual)">
+      <div class="modes" role="radiogroup" aria-label="Como você vai">
+        <input type="radio" name="mode" id="m-driving" value="driving" checked><label for="m-driving">Carro</label>
+        <input type="radio" name="mode" id="m-transit" value="transit"><label for="m-transit">Ônibus/trem</label>
+        <input type="radio" name="mode" id="m-walking" value="walking"><label for="m-walking">A pé</label>
+      </div>
+      <div class="btnrow">
+        <a class="btn primary" id="gmaps" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l14-7-7 14-1.5-5.5z" fill="currentColor"/></svg>Rota no Google Maps</a>
+        <a class="btn" id="waze" target="_blank" rel="noopener">Abrir no Waze</a>
+        <a class="btn dark" id="uber" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="8" width="14" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 8l2-4h6l2 4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6.5" cy="15.5" r="1.5" fill="currentColor"/><circle cx="13.5" cy="15.5" r="1.5" fill="currentColor"/></svg>Chamar Uber</a>
+      </div>
+      <p class="hint">O Uber abre com o destino preenchido e mostra o preço antes de você confirmar. Se pedir, use o endereço acima e informe "Quiosque 3B" ao motorista na portaria.</p>
+    </form>
+  </section>
+
+  <section aria-labelledby="h-rules">
+    <h2 id="h-rules">Resumo rápido</h2>
+    <div class="rules">
+      <div><b>Fantasia</b><span>Obrigatória. Capricha.</span></div>
+      <div><b>Horário</b><span>A partir das 18h30, sem pressa.</span></div>
+      <div><b>Comida e refri</b><span>Por nossa conta.</span></div>
+      <div><b>Álcool</b><span>Traga o que for beber.</span></div>
+    </div>
+  </section>
+
+  <footer>Te esperamos no <span>3B</span> 🦇</footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeToggle');
+  var saved=null; try{saved=localStorage.getItem('hw-theme')}catch(e){}
+  function apply(t){root.setAttribute('data-theme',t);btn.textContent=t==='dark'?'☀ Claro':'☾ Escuro';}
+  apply(saved==='light'?'light':'dark');
+  btn.addEventListener('click',function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(t);try{localStorage.setItem('hw-theme',t)}catch(e){}});
+
+  var DEST="Moradas Club Canoas, R. Profa. Silvia Síeben Meotti, 84 - São José, Canoas - RS, 92420-236";
+  var enc=encodeURIComponent(DEST);
+  document.getElementById('openMap').href="https://www.google.com/maps/search/?api=1&query="+enc;
+  document.getElementById('waze').href="https://waze.com/ul?q="+enc+"&navigate=yes";
+  document.getElementById('uber').href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[nickname]="+encodeURIComponent("Moradas Club - Quiosque 3B")+"&dropoff[formatted_address]="+enc;
+
+  var origin=document.getElementById('origin'), gm=document.getElementById('gmaps');
+  function upd(){
+    var mode=document.querySelector('input[name=mode]:checked').value;
+    var url="https://www.google.com/maps/dir/?api=1&destination="+enc+"&travelmode="+mode;
+    var o=origin.value.trim(); if(o) url+="&origin="+encodeURIComponent(o);
+    gm.href=url;
+  }
+  origin.addEventListener('input',upd);
+  document.querySelectorAll('input[name=mode]').forEach(function(r){r.addEventListener('change',upd)});
+  document.getElementById('routeForm').addEventListener('submit',function(e){e.preventDefault();});
+  upd();
+
+  var toast=document.getElementById('toast'),tt;
+  function show(m){toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toast.hidden=true},1800)}
+  document.getElementById('copyAddr').addEventListener('click',function(){
+    var s=document.getElementById('street');
+    var txt="Moradas Club Canoas – Quiosque 3B, "+s.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(s);var w=getSelection();w.removeAllRanges();w.addRange(r);show('Endereço selecionado, é só copiar')}
+    try{navigator.clipboard.writeText(txt).then(function(){show('Endereço copiado')},sel)}catch(e){sel()}
+  });
+
+  var start=new Date('2026-10-31T18:30:00-03:00').getTime(), cd=document.getElementById('countdown');
+  function tick(){
+    var d=start-Date.now();
+    if(d<=0){cd.innerHTML= d>-8*3600e3 ? 'A festa <b>já começou</b>. Vem!' : 'Valeu por ter vindo 🎃';return}
+    var h=Math.floor(d/3600e3), m=Math.floor(d%3600e3/60e3), s=Math.floor(d%60e3/1e3);
+    cd.innerHTML='Começa em <b>'+h+'h '+String(m).padStart(2,'0')+'min '+String(s).padStart(2,'0')+'s</b>';
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
