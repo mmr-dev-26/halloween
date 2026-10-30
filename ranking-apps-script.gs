@@ -6,7 +6,7 @@
  * Copie a URL que termina em /exec e mande pro Claude (ou cole em RANK_URL no index.html).
  */
 var ABA = 'Rank';
-var MONSTROS = ['V', 'L', 'F', 'B', 'Z'];
+var MONSTROS = ['V', 'L', 'F', 'B', 'Z', 'D'];
 
 function aba_() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
